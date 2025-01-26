@@ -39,7 +39,8 @@ const store = useStore();
             },
         },
         created() {
-            let params = new URLSearchParams(window.location.search);
+            let params = Object.fromEntries(new URLSearchParams(location.search));
+
             console.log(params)
         },
     };
