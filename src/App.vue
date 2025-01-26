@@ -4,8 +4,7 @@ import Oauth from './components/Oauth.vue';
 </script>
 
 <template>
-  
-  <Oauth />
+  <Oauth /> 
   <HelloWorld msg="Vite + Vue" />
 </template>
 
