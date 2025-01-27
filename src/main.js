@@ -1,10 +1,11 @@
 import { createApp } from 'vue'
-import { createStore } from 'vuex'
+import vueDebounce from 'vue-debounce'
 import './style.css'
 import App from './App.vue'
+import store from './store'
 
-const store = createStore({
-  // Your store configuration here
-})
 
-createApp(App).use(store).mount('#app')
+createApp(App)
+.use(store)
+.directive('debounce', vueDebounce({ lock: true, cancelonempty: true }))
+.mount('#app')

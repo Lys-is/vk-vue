@@ -1,11 +1,18 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+import UsersList from './components/UsersList.vue';
 import Oauth from './components/Oauth.vue';
+
+const store = useStore();
+const hasToken = computed(() => store.state.auth.token !== null);
 </script>
 
 <template>
-  <Oauth /> 
-  <HelloWorld msg="Vite + Vue" />
+  <div>
+    <UsersList v-if="hasToken" />
+    <Oauth v-else />
+  </div>
 </template>
 
 <style scoped>
