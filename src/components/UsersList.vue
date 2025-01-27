@@ -12,6 +12,7 @@ import User from './User.vue';
 </template>
 
 <script>
+
 export default {
     data() {
         return {
@@ -21,7 +22,7 @@ export default {
     methods: {
         async searchVk(searchString) {
             let e = await fetch(`https://api.vk.com/method/users.search?q=${searchString}`,{
-                method: 'GET',
+                method: 'GET', 
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
