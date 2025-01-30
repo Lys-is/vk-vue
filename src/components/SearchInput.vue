@@ -21,3 +21,13 @@ export default {
     }
 }
 </script>
+<style scoped>
+div, input {
+    width: -webkit-fill-available;
+}
+input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+</style>

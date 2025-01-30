@@ -1,21 +1,51 @@
 <script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
-import UsersList from './components/UsersList.vue';
-import Oauth from './components/Oauth.vue';
+
+import { RouterView } from 'vue-router';
 
 const store = useStore();
-const hasToken = computed(() => store.state.auth.token !== null);
+const isAuth = () => {
+  VK.Auth.getLoginStatus((response) => {
+  console.log(response)
+  if(response.status == 'connected')
+    return true
+  else
+    return false
+})}
+
 </script>
 
 <template>
   <div>
-    <UsersList v-if="hasToken" />
-    <Oauth v-else />
+    <RouterView />
+    <div id="vk_api_transport"></div>
   </div>
 </template>
 
+<script>
+  export default {
+    mounted() {
+      window.vkAsyncInit = function() {
+          VK.init({
+              apiId: 52967408
+          });
+      };
+      setTimeout(function() {
+          var el = document.createElement("script");
+          el.type = "text/javascript";
+          el.src = "https://vk.com/js/api/openapi.js?169";
+          el.async = true;
+          document.getElementById("vk_api_transport").appendChild(el);
+      }, 0);
+    }
+  }
+
+</script>
+
 <style scoped>
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
