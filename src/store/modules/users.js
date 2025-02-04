@@ -19,6 +19,12 @@ const mutations = {
     },
     clearFriends: (state) => {
         state.friends = [];
+    },
+    setFreindsCount: (state, {id, count}) => {
+        let getFriend = state.friends.find(f => f.id === id);
+        if(getFriend) {
+            getFriend.friendsCount = count;
+        }
     }
 }
 const getters = {
@@ -33,7 +39,8 @@ const getters = {
     getFriendById: state => id => {
         let friend = state.friends.find(f => f.id == id);
         return friend
-    }
+    },
+    getUsersCount: state => state.users.length,
 }
 export default {
     namespaced: true,

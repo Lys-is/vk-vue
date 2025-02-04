@@ -6,7 +6,7 @@ import Friend from "./Friend.vue"
         <h2>Друзья</h2>
         <div class="friends-list">
             <transition-group name="list-complete">
-                <Friend v-for="friend in friends" :key="friend.id" :friend="friend"/>
+                <Friend v-for="friend in friends" :key="friend.id" :usersCount="usersCount" :friend="friend"/>
             </transition-group>
         </div>
     </div>
@@ -19,6 +19,9 @@ export default {
     computed: {
         friends() {
             return this.$store.getters['users/getAllfriends'];
+        },
+        usersCount() {
+            return this.$store.getters['users/getUsersCount'];
         }
     }
 }

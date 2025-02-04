@@ -15,7 +15,6 @@ const props = defineProps(['user', 'btn']);
 export default {
     methods: {
         addUser() {
-            console.log(this.user);
             this.$store.commit('users/addUser', this.user);
         }
     }
@@ -52,5 +51,10 @@ button {
 button:hover {
     background-color: #3571A3;
 }
-
+@media screen and (max-width: 1024px) {
+    button {
+         width: 30%;
+         padding: 5px;
+    }
+ }
 </style>

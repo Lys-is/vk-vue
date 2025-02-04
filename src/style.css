@@ -1,7 +1,7 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -21,7 +21,11 @@ a {
 a:hover {
   color: #535bf2;
 }
-
+p {
+  overflow-wrap: anywhere;
+  font-weight: 500;
+  text-transform: uppercase;
+}
 body {
   margin: 0;
   display: flex;
@@ -73,8 +77,15 @@ button:focus-visible {
   padding: 20px;
   background-color: #353535;
   min-height: 160px;
-
-
+}
+@media screen and (max-width: 1024px) {
+  #app {
+    padding: 1rem;
+  }
+  .wrap {
+    width: 100%;
+  }
+  
 }
 .user-photo {
 

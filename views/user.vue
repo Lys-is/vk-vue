@@ -70,6 +70,15 @@ export default {
 h1 {
     width: 100%;
 }
+@media screen and (max-width: 1024px) {
+    .user-page {
+        flex-direction: column;
+    }
+    .users, .posts {
+        width: 100%;
+    }
+    
+}
 .post {
     display: flex;
     flex-direction: column;
